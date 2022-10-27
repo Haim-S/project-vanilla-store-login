@@ -2,7 +2,7 @@
 
 # The order of operations to start the project:
 
-## backend:
+### backend:
 
 The database connects to Mongo Atlas, and In the terminal, write "npm start".
 
