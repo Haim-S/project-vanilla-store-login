@@ -29,6 +29,20 @@ exports.getOne = async (req, res, next) => {
     }
 }
 
+
+exports.cheapShoes = async (req, res, next) =>{
+    try {
+        const findCheapShoe = await ShoeShop.find({price: {$lt: req.params.findprice}});
+        res.status(200).json({
+            success: true,
+            data: findCheapShoe
+        });
+    } catch (error) {
+        next(new AppError("We are sorry but it does not exist", 404));
+    }
+}
+
+
 exports.CreateOne = async (req, res, next) => {
     try {
        

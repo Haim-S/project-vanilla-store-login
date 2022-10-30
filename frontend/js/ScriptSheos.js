@@ -1,6 +1,9 @@
 const tabSheos = document.querySelector("[data-tata-sheos]");
 
 
+const CheapShoeformEl = document.querySelector("[data-btn-CheapShoe]");
+const inputCheapPrice = document.querySelector("#inputCheapPrice");
+
 const END_POINT = "http://localhost:3100/shoe/";
 const END_PAINT_b = "http://localhost:3100/user/";
 
@@ -15,6 +18,14 @@ function getAll() {
             AdminControlPanel()
         })
 }
+
+
+CheapShoeformEl.addEventListener("submit", async (e) => {
+    e.preventDefault()
+ await  fetch(END_POINT + `/cheap/${inputCheapPrice.value}`)
+    .then((res) => res.json())
+    .then((Shoes)=>  renderShoes(Shoes))
+})
 
 
 function SaveShoe(_id) {
