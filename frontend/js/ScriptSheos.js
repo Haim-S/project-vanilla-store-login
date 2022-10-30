@@ -35,10 +35,6 @@ function SaveShoe(_id) {
 }
 
 
-
-
-
-
  function renderShoes(Shoes) {
 
     const SuitsElemnt = Shoes.data.map(
