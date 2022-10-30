@@ -25,6 +25,9 @@ const shoeSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Manufacturer'
     },
+    saved:{type: Boolean,
+        default: false,
+    },
     createAt: {
         type: Date,
         default: () => Date.now(),

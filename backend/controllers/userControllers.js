@@ -1,4 +1,5 @@
 const User = require("../schemas/User");
+const ShoeShop = require("../schemas/shoes");
 const jwt = require("../tokens/tokens");
 const AppError = require("../utils/AppError");
 
@@ -74,10 +75,13 @@ exports.updateOne = async (req, res, next) => {
                 shoe: id
             }
         }).exec();
-        // userid.shoe.push(id);
+        await ShoeShop.findByIdAndUpdate(id, {saved: true}, {
+            returnDocument: "after",
+        });
+        const filterShoe = await ShoeShop.find({saved: false});
         res.status(200).json({
             success: true,
-            data: userid
+            data: filterShoe
         })
     } catch (error) {
         next(new AppError(`${error.message}`))
@@ -94,6 +98,9 @@ exports.deletOne = async (req, res, next) => {
             $pull: {
                 shoe: id
             }
+        });
+        await ShoeShop.findByIdAndUpdate(id, {saved: false}, {
+            returnDocument: "after",
         });
         res.status(200).json({
             success: true,

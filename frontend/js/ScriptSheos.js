@@ -30,7 +30,7 @@ function SaveShoe(_id) {
             body: JSON.stringify(body),
         })
         .then((res) => res.json())
-        .then((Shoes) => console.log(Shoes));
+        .then((Shoes) => renderShoes(Shoes));
 
 }
 
