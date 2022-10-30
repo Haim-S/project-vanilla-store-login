@@ -72,7 +72,7 @@ exports.updateOne = async (req, res, next) => {
             return next(new AppError(`${bodyValid.error.details[0].message}`, 400))
         }
 
-        const shoeToUpdate = await ShoeShop.findByIdAndUpdate(id, bodyValid, {
+        const shoeToUpdate = await ShoeShop.findByIdAndUpdate(id, bodyValid.value, {
             returnDocument: "after",
         });
 
