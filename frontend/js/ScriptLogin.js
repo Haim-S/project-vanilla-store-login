@@ -62,13 +62,13 @@ function showMsg(data) {
         container_login.style.display = "none";
         if (data.msg) {
             MsgAttention.style.display = "flex";
-            setTimeout(() => MsgAttention.style.display = "none", 8000);
+            setTimeout(() => MsgAttention.style.display = "none", 7000);
             paragraph_attention.innerHTML = data.msg;
         }
     }
     if (data.msg) {
         MsgAttention.style.display = "flex";
-        setTimeout(() => MsgAttention.style.display = "none", 8000);
+        setTimeout(() => MsgAttention.style.display = "none", 7000);
         paragraph_attention.innerHTML = data.msg;
     }
     if (data.error) {
