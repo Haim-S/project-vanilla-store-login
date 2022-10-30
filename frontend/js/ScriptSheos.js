@@ -1,17 +1,16 @@
 const tabSheos = document.querySelector("[data-tata-sheos]");
 
 
-const btnsave = tabSheos.getElementsByClassName("btnsave")
-
 const END_POINT = "http://localhost:3100/shoe/";
 const END_PAINT_b = "http://localhost:3100/user/";
+
 
 
 
 function getAll() {
     fetch(END_POINT)
         .then((res) => res.json())
-        .then((Shoes) => {
+        .then((Shoes)=> {
             renderShoes(Shoes)
             AdminControlPanel()
         })
@@ -40,9 +39,10 @@ function SaveShoe(_id) {
 
 
 
-function renderShoes(Shoes) {
+ function renderShoes(Shoes) {
+
     const SuitsElemnt = Shoes.data.map(
-        (shoe) =>  `
+        (shoe) => `
         <div class="col">
          <div class="border p-3">
                     <table class="table table-striped table-hover table-borderless" style="width:100%">
@@ -53,19 +53,17 @@ function renderShoes(Shoes) {
                             <tr>
                                 <th>price: ${shoe.price}</th>
                             </tr>
-                            <tr>
-                                <th>manufacturer: ${shoe.manufacturer.name}</th>
-                                  <t>
                                     <img style = "width: 80% ;"
                                     src = "${shoe.img}"
                                     alt = ""
                                     srcset = "">
                             </tr>
+                            
                             <tr class="admin">
                     
                             <td><button class="btn btn-danger" <span onclick="deleteOne('${shoe._id}')">X</span></button>
                             
-                            <td><button  class="btn btn-secondary" onclick="showModalShoeEdit('${shoe._id}', '${shoe.name}', '${shoe.price}', '${shoe.manufacturer.name}')">Edit</button></td>
+                            <td><button  class="btn btn-secondary" onclick="showModalShoeEdit('${shoe._id}', '${shoe.name}', '${shoe.price}', '${shoe.manufacturer}')">Edit</button></td>
                              </div>
                     </tr>
                       <tr>
