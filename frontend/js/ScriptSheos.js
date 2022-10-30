@@ -60,6 +60,7 @@ function SaveShoe(_id) {
                             <tr>
                                 <th>price: ${shoe.price}</th>
                             </tr>
+                        <tr>
                                     <img style = "width: 80% ;"
                                     src = "${shoe.img}"
                                     alt = ""
